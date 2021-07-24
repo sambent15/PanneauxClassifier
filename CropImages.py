@@ -43,8 +43,8 @@ def mouse_crop(event, x, y, flags, param):
 
 
 general_path=os.path.join(os.path.abspath(os.getcwd()),"dataset")
-input_dir="vit_lim"
-output_dir="cropped_vit_lim"
+input_dir="other"
+output_dir="cropped_other"
 
 input_list=os.listdir(os.path.join(general_path,input_dir))
 output_exists=os.listdir(os.path.join(general_path,output_dir))
@@ -83,6 +83,5 @@ for name in tqdm(file_list):
             cv2.imshow("image", i)
     
         if cv2.waitKey(1)&0xFF == ord('q'):
-            print("Pressed q")
             break
     cv2.destroyAllWindows()
