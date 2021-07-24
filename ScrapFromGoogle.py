@@ -87,14 +87,21 @@ search_mode=False
 key_words=['vitesse 30 panneau','panneau vitesse limite']
 
 #using urls (search_mode=False)
-urls=["https://www.google.com/search?q=panneau%20vitesse%20limite&tbm=isch&tbs=rimg:CbQTRfAR0IHHYUfUUTklUpw6&client=firefox-b-d&hl=fr&sa=X&ved=0CAIQrnZqFwoTCOjg792V-vECFQAAAAAdAAAAABAt&biw=1483&bih=875",
-      "https://www.google.com/search?q=panneau%20vitesse%20limite&tbm=isch&hl=fr&tbs=rimg:CcIEiS8PKTzvYe5gmUYjFFIb&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCOjKlouW-vECFQAAAAAdAAAAABAL&biw=1483&bih=875",
-      "https://www.google.com/search?q=panneau%20stop&tbm=isch&hl=fr&tbs=rimg:CSK-uMq6hhAsYbZe2mLKHwz0&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCJCFzZia-vECFQAAAAAdAAAAABAJ&biw=1483&bih=875"
-      ]
+urls=["https://www.google.com/search?q=panneau+sens+interdit&client=firefox-b-d&sxsrf=ALeKk025pzjXRs7Hek8zyZLuWWEa6w69pQ:1627141135066&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjQ-OqKhfzxAhUizoUKHSuUD9MQ_AUoAXoECAEQAw&biw=1500&bih=875",
+      "https://www.google.com/search?q=rue+sens+interdit&client=firefox-b-d&sxsrf=ALeKk00HeOBG4S7ceMxTtj2revZlakrKzw:1627141152427&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiCx46ThfzxAhUqzIUKHSj4Dt0Q_AUoAXoECAEQAw&biw=1500&bih=875&dpr=2#imgrc=6hTlMzAGZclb6M",
+      "https://www.google.com/search?q=rue%20sens%20interdit&tbm=isch&tbs=rimg:CeoU5TMwBmXJYd-Je8y8kfz_1&bih=875&biw=1500&client=firefox-b-d&hl=fr&sa=X&ved=0CAIQrnZqFwoTCKjdvZaF_PECFQAAAAAdAAAAABAR",
+      "https://www.google.com/search?q=panneau+vitesse+limite&tbm=isch&ved=2ahUKEwiX1bm6hfzxAhUZ_RoKHZhrCW8Q2-cCegQIABAA&oq=panneau+vitess&gs_lcp=CgNpbWcQARgAMgQIIxAnMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAOgQIABBDOggIABCxAxCDAToFCAAQsQM6CggAELEDEIMBEENQpJAFWIShBWC0pgVoAHAAeACAAUmIAZEGkgECMTSYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=cjT8YJfUN5n6a5jXpfgG&bih=875&biw=1500&client=firefox-b-d&hl=fr",
+      "https://www.google.com/search?q=panneau+vitesse+30+france&tbm=isch&ved=2ahUKEwihtu76hfzxAhVO04UKHUH1ARYQ2-cCegQIABAA&oq=panneau+vitesse+30+france&gs_lcp=CgNpbWcQAzoCCAA6BAgAEB46BggAEAgQHlC-3wRYhucEYMznBGgAcAB4AIABPogB4gKSAQE3mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=-TT8YOHVPM6mlwTB6oewAQ&bih=875&biw=1500&client=firefox-b-d",
+      "https://www.google.com/search?q=panneau%20vitesse%20limite&tbm=isch&hl=fr&tbs=rimg:CecAvk3_1J1joYQNigQVLS1QC&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCMiwko6G_PECFQAAAAAdAAAAABAR&biw=1483&bih=875",
+      "https://www.google.com/search?q=panneau+routier&tbm=isch&ved=2ahUKEwip6ae6hvzxAhUS_xoKHYhZCeQQ2-cCegQIABAA&oq=panneau+routier&gs_lcp=CgNpbWcQAzIECCMQJzICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADoECAAQAzoICAAQsQMQgwFQ3KYFWOyqBWDWsgVoAHAAeACAAUaIAYsDkgEBN5gBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=fzX8YOmtA5L-a4izpaAO&bih=875&biw=1483&client=firefox-b-d&hl=fr",
+      "https://www.google.com/search?q=panneau%20routier%20france&tbm=isch&hl=fr&tbs=rimg:Ca2AC8-e7tH2YQhwBRMBXg-g&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCIjTk_KG_PECFQAAAAAdAAAAABAR&biw=1483&bih=875",
+      "https://www.google.com/search?q=panneau%20routier&tbm=isch&hl=fr&tbs=rimg:CT-X3SgD3E02YX6998OjlT0x&bih=875&biw=1483&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCLCP2eqG_PECFQAAAAAdAAAAABAK",
+      "https://www.google.com/search?q=panneau%20routier&tbm=isch&hl=fr&tbs=rimg:Ce9rKcbz38FMYcxOr6OkrAWA&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCMi4wbKH_PECFQAAAAAdAAAAABAI&biw=1483&bih=875",
+      "https://www.google.com/search?q=panneau%20routier%20france&tbm=isch&hl=fr&tbs=rimg:CTGd5FAcjLLZYQHZuK97X0sf&bih=875&biw=1483&client=firefox-b-d&sa=X&ved=0CAIQrnZqFwoTCOjb7L-H_PECFQAAAAAdAAAAABAP"]
 
 
-labels=['vit_limite','vit_limite','stop']
-num_images=[100,100,200]
+labels=['s_interdit','s_interdit','s_interdit',"vit_lim","vit_lim","vit_lim","other","other","other","other","other"]
+num_images=[100,100,100,100,100,100,100,100,100,100,100]
 
 if search_mode:
     for word,label,max_images in zip(key_words,labels,num_images):
