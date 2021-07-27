@@ -2391,3 +2391,13 @@ webdriverClickElement@chrome://marionette/content/interaction.js:179:31
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1627411743671	geckodriver	INFO	Listening on 127.0.0.1:55389
+1627411746723	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapha\\AppData\\Local\\Temp\\rust_mozprofileR9GMbZ"
+1627411747269	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\rapha\\AppData\\Local\\Temp\\rust_mozprofileR9GMbZ\\search.json.mozlz4", (void 0)))
+1627411750938	Marionette	INFO	Listening on port 55398
+1627411751052	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627411795899	Marionette	INFO	Stopped listening on port 55398
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
