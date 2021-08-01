@@ -5,7 +5,7 @@ Created on Fri Jul 23 22:39:01 2021
 @author: rapha
 """
 
-
+#%% Imports
 from selenium import  webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,19 +17,36 @@ import os
 
 import time
 
+#%% Set driver type (Firefox, Chromium...)
 driver = webdriver.Firefox()
-default_path = r"C:\Users\rapha\Desktop\DeepLearningProjet"
 
+#%% Settings
+default_path = r"C:\Users\rapha\Desktop\DeepLearningProjet"
+search_mode=False
+
+#searching with keywords (search_mode=True)
+key_words=['vitesse 30 panneau','panneau vitesse limite']
+
+#using urls (search_mode=False)
+urls=["https://www.google.com/search?q=panneau+autoroute&client=firefox-b-d&sxsrf=ALeKk02rHpXpgcNCXKVb6IqfXGHaQb_3gA:1627411463619&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjn1cSR9IPyAhVPPBoKHYb1DjcQ_AUoAXoECAEQAw"]
+
+
+#labels and num_images lists lengths must match the length of the used list for seacrch (keywords when search_mode==True, urls else)
+labels=['other']
+num_images=[20]
+
+
+#%% Scrolling, iterating and saving function
 
 def start(out_folder, cat,max_images=100):
     number_of_scrolls=int((max_images + 0)/ 400 + 1) 
     for _ in range(number_of_scrolls):
         for __ in range(10):
-            # Multiple scrolls needed to show all 400 images
+            # Multiple scrolls needed to show all images
             driver.execute_script("window.scrollBy(0, 1000000)")
             time.sleep(0.2)
-        # to load next 400 images
         time.sleep(0.2)
+        #If possible try to load more images by clicking the dedicated button
         try:
             driver.find_element_by_xpath("//input[@value='Afficher plus de résultats']").click()
             time.sleep(0.5)
@@ -37,17 +54,24 @@ def start(out_folder, cat,max_images=100):
             print("Less images found:"+ str(e))
             break
     
+    #select images (miniatures) on the page
     images = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
+    
+    #set the saving path
     _path = os.path.join(default_path, out_folder+"\\"  + cat)
+    
     try:
         os.mkdir(_path)
     except:
         pass
    
     os.chdir(_path)
+    
     count_images = len(images)
     print("Listed %s images"%(count_images))
     time.sleep(0.5)
+    
+    #iterate over the miniatures to obtain source images
     count = 0
     label_num=len([name for name in os.listdir(_path) if os.path.isfile(name)])
     for image in images:  
@@ -76,33 +100,13 @@ def start(out_folder, cat,max_images=100):
                 except:
                     print("tıklanamadı")
     
-
-
-
-
-
-search_mode=False
-
-#searching with keywords (search_mode=True)
-key_words=['vitesse 30 panneau','panneau vitesse limite']
-
-#using urls (search_mode=False)
-urls=["https://www.google.com/search?q=panneau+autoroute&client=firefox-b-d&sxsrf=ALeKk02rHpXpgcNCXKVb6IqfXGHaQb_3gA:1627411463619&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjn1cSR9IPyAhVPPBoKHYb1DjcQ_AUoAXoECAEQAw"]
-
-
-labels=['other']
-num_images=[20]
-
+#%% Launch the search for each element and use the start function
 if search_mode:
     for word,label,max_images in zip(key_words,labels,num_images):
-        # if not os.path.exists(os.path.join(default_path,"dataset",label)):
-        #     os.makedirs(os.path.join(default_path,"dataset",label))
         url = "https://www.google.co.in/search?q="+word+"&source=lnms&tbm=isch"
         driver.get(url)
         start("dataset", label,max_images)
 else:
     for url,label,max_images in zip(urls,labels,num_images):
-        # if not os.path.exists(os.path.join(default_path,"dataset",label)):
-        #     os.makedirs(os.path.join(default_path,"dataset",label))
         driver.get(url)
         start("dataset", label,max_images)    

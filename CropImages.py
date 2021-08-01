@@ -4,6 +4,8 @@ Created on Sat Jul 24 16:20:02 2021
 
 @author: rapha
 """
+
+#%% Imports
 import cv2
 import numpy as np
 import PIL
@@ -11,6 +13,7 @@ from PIL import Image
 import os
 from tqdm import tqdm
 
+#%% Callback function
 def mouse_crop(event, x, y, flags, param):
     # grab references to the global variables
     global x_start, y_start, x_end, y_end, cropping
@@ -34,44 +37,49 @@ def mouse_crop(event, x, y, flags, param):
 
         refPoint = [(x_start, y_start), (x_end, y_end)]
 
-        if len(refPoint) == 2:  # when two points were found
+        if len(refPoint) == 2:  # when two points were found show the cropped image and save it
             roi = oriImage[refPoint[0][1]:refPoint[1][1], refPoint[0][0]:refPoint[1][0]]
             cv2.imshow("Cropped", roi)
             cv2.imwrite(os.path.join(general_path,output_dir,name), roi)
 
 
 
-
+#%% Settings
 general_path=os.path.join(os.path.abspath(os.getcwd()),"dataset")
 input_dir="other"
 output_dir="cropped_other"
 
+#%% Get files to crop and files already cropped
 input_list=os.listdir(os.path.join(general_path,input_dir))
 output_exists=os.listdir(os.path.join(general_path,output_dir))
 file_list=[i for i in input_list if i not in output_exists] #files that have not already been cropped
 
+#%% Iterate over files to crop
 for name in tqdm(file_list):
     
-    cv2.namedWindow("image")
-    cv2.setMouseCallback("image", mouse_crop)
+    cv2.namedWindow("image") #create the display window
+    cv2.setMouseCallback("image", mouse_crop) #call the callback function when acting with the mouse
     
     cropping = False
     
     x_start, y_start, x_end, y_end = 0, 0, 0, 0
     
     basewidth = 1000
-    # Pass the image name/path
+    
+    # Open the image
     img = Image.open(os.path.join(general_path,input_dir,name))
-    wpercent = (basewidth/float(img.size[0]))
+    
+    #resize the image so that its width is display with basewidth
+    wpercent = (basewidth/float(img.size[0])) 
     hsize = int((float(img.size[1])*float(wpercent)))
     img=img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
-    #img.save(os.path.join(path,"resized",name))
-    #image = cv2.imread(os.path.join(path,"resized",name))
+    
+    #convert to BGR (opencv standard) colormap
     image=cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
     oriImage = image.copy()
     
     
-    
+    #crop the image, with the mouse 
     while True:
         i = image.copy()
     
